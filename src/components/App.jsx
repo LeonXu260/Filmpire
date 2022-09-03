@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import useStyles from './styles';
 import useAlan from './Alan';
 
-import { Navbar } from './index'
+import { Actors, Movies, MovieInfo, Navbar, Profile } from './index'
 
 function App() {
     const classes = useStyles();
@@ -19,6 +19,13 @@ function App() {
        <Navbar />
        <main className={classes.content}>
            <div className={classes.toolbar}>
+               <Routes>
+                   <Route exact path={'/'} element={<Movies />}/>
+                   <Route exact path={'/approved'} element={<Movies />}/>
+                   <Route exact path={'/movie/:id'} element={<MovieInfo />}/>
+                   <Route exact path={'/actors/:id'} element={<Actors />}/>
+                   <Route exact path={'/profile/:id'} element={<Profile />}/>
+               </Routes>
            </div>
        </main>
        <div ref={alanBtnContainer}/>
